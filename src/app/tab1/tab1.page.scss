@@ -1,0 +1,37 @@
+img {
+    width: 100%;
+    height: auto;
+}
+
+.redondo{
+    display: block;
+    width: 40px;
+    height: 40px;
+    --border-radius: 50%;
+}
+
+
+.titulo{
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4em;
+}
+
+#myTextarea{
+    white-space: pre-line;
+}
+
+.your-img {
+    border-radius: 20px !important;
+    overflow: hidden;
+}
+
+.centerdiv{
+    display: flex;
+    justify-content: center;
+}
+
+.titulo2{
+    font-family: 'Space Mono', monospace;
+    font-size: 1.4em;
+    color: #ff9900;
+}

@@ -1,0 +1,58 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button id="back" defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button color="primary" (click)="irRegistro()">Regístrate</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <h1>Login</h1>
+    <img src="https://cdn.iconscout.com/icon/free/png-256/alcohol-26-76644.png" />
+  </div>
+
+  <form id="form" #formulario="ngForm">
+    <ion-item class="ion-margin-bottom">
+      <ion-input 
+        type="text" 
+        name="user"
+        placeholder="Nombre Usuario"
+        [(ngModel)]="user" required>
+      </ion-input>
+    </ion-item>
+
+    <ion-item class="ion-margin-bottom">
+      <ion-input 
+        name="clave"
+        [type]="showPassword ? 'text': 'password'"
+        placeholder="Contraseña"
+        [(ngModel)]="clave" required>
+      </ion-input>
+      <ion-icon 
+        slot="end" 
+        [name]="passwordToggleIcon"
+        (click)="togglePassword()">
+      </ion-icon>
+    </ion-item>
+
+    <ion-button 
+      expand="block" 
+      shape="round" 
+      type="submit"
+      color="transparent"
+      class="btn"
+      [disabled]="formulario.invalid" 
+      (click)="irApp()">
+      Inicia sesión
+    </ion-button>
+  </form>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="ion-text-center" color="primary">© Bielapp 2020</ion-title>
+  </ion-toolbar>
+</ion-footer>

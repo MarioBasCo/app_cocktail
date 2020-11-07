@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="dismiss()" slot="end">
+      <ion-button>
+        <ion-icon size="large" color="danger" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Nuevo Sitio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #formulario="ngForm" (ngSubmit)="sub_formulario()">
+    <ion-list lines="none">
+      <ion-item lines="none">
+        <ion-label class="ion-text-center">Acerca del Sitio</ion-label>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="floating">Nombre:</ion-label>
+        <ion-input 
+          type="text" 
+          name="nombre"
+          [(ngModel)]="nombre" required>
+        </ion-input>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label position="floating">Telefono:</ion-label>
+        <ion-input 
+          type="text" 
+          name="telefono"
+          [(ngModel)]="telefono">
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label class="ion-text-center">Ubicación del Sitio</ion-label>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Dirección:</ion-label>
+        <ion-input 
+          type="text" 
+          name="direccion"
+          [(ngModel)]="direccion" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-note>Para mejor precisión capure la posición en su negocio</ion-note>
+      </ion-item>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button expand="block" color="secondary" (click)="getLocation()">
+              <ion-icon name="navigate-outline" slot="start"></ion-icon>
+              <ion-label>Capturar GPS</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- <ion-item lines="none"> -->
+        
+      <!-- </ion-item> -->
+
+      <ion-item lines="none">
+        <ion-label position="floating">Latitud:</ion-label>
+        <ion-input 
+          type="number" 
+          name="latitud"
+          [(ngModel)]="latitud" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating">Longitud:</ion-label>
+        <ion-input 
+          type="number" 
+          name="longitud"
+          [(ngModel)]="longitud" required>
+        </ion-input>
+      </ion-item>
+
+      <!-- <ion-item lines="none">
+        <ion-label class="ion-text-center">Horario de atención</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Abierto</ion-label>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="2020-10-05T13:01:40.593Z"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cerrado</ion-label>
+        <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="2020-10-06T02:00:22.227Z"></ion-datetime>
+      </ion-item> -->
+
+    </ion-list>
+
+    <div>
+      <ion-item lines="none">
+        <ion-label class="ion-text-center">Imagen del Sitio</ion-label>
+      </ion-item>
+      
+      <div *ngIf="uploadResponse && uploadResponse.status === 'error'">
+  
+      </div>
+      <div *ngIf="uploadResponse && uploadResponse.status === 'success'">
+        <ion-card>
+          <img [src]='uploadResponse.url' />
+        </ion-card>
+      </div>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-item lines="none">
+        <ion-input type="file" name="avatar" (change)="onFileSelect($event)"></ion-input>
+      </ion-item>
+      
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-button color="success" expand="block" type="submit">
+              <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+              <ion-label>SUBIR IMAGEN</ion-label>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+    
+
+    <ion-button type="submit" expand="block" fill="outline" [disabled]="formulario.invalid">
+      <ion-icon slot="start" name="save-outline"></ion-icon>
+      <ion-label>GUARDAR</ion-label>
+    </ion-button>
+  </form>
+</ion-content>

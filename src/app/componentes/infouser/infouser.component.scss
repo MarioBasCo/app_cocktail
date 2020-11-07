@@ -1,0 +1,39 @@
+.center {
+    display: block;
+    margin: auto;
+    //width: 100%;
+}
+
+ion-thumbnail{
+    width:100px;
+    height:100px;
+    /* img {
+        width:auto !important;
+        height:auto !important;
+    } */
+}
+
+#btnProceed {
+    --ion-color-base: #d9ff00 !important; 
+}
+
+#icon{
+    color: black;
+}
+
+.padre {
+    display: flex;
+    justify-content: center;
+}
+
+.hijo {
+    padding: 10px;
+    margin: 10px;
+    background-color: yellow;
+}
+
+.btnadd{
+    --background:#ff7700;
+    color: rgb(0, 0.1, 0.1);
+    --background-activated: #ff8c00;
+}

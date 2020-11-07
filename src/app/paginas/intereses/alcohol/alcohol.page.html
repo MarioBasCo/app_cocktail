@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lícores y Cervezas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-searchbar></ion-searchbar> -->
+  <ion-list>
+    <ion-card *ngFor="let item of lista">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center"><h5><b>{{item.cer_nombre}}</b></h5></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-img class="imagen" [src]="url+item.cer_img"></ion-img>
+            </ion-col>
+            <ion-col>
+              <ion-row>
+                <ion-col><b>Grado alcohólico</b></ion-col>
+                <ion-col>{{item.grado_alcohol}}°</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col><b>País</b></ion-col>
+                <ion-col>{{item.cer_pais}}</ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>    
+  </ion-list>
+</ion-content>

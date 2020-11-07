@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital@1&display=swap');
+
+ion-content{ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.titleCard{
+    font-family: 'Old Standard TT', serif;
+    font-size: 2em;
+}
+
+.your-img {
+    border-radius: 40px !important;
+    overflow: hidden;
+}

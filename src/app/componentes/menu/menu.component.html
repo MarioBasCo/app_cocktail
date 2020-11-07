@@ -1,0 +1,76 @@
+<ion-menu side="start" menuId="principal" contentId="principal" [class.dark-theme]="darkMode">
+  <ion-header class="ion-no-border">
+    <ion-toolbar color="primary">
+      <ion-title class="ion-text-center">Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list lines="none">
+      <ion-list-header>
+        Cuenta
+      </ion-list-header>
+      <ion-menu-toggle>
+        <ion-item detail="false" (click)="irALogin()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          <ion-label>
+            Login
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+  
+      <ion-menu-toggle>
+        <ion-item detail="false" (click)="irAPerfil()">
+          <ion-icon slot="start" name="person-circle-outline"></ion-icon>
+          <ion-label>
+            Perfil de Usuario
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item detail="false" (click)="cerrarSesion()">
+          <ion-icon slot="start" name="chevron-back-circle-outline"></ion-icon>
+          <ion-label>
+            Cerrar Sesión
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  
+    <ion-list lines="none">
+      <ion-list-header>
+        Intereses
+      </ion-list-header>
+      <ion-menu-toggle *ngFor="let item of componentesMenu |async">
+        <ion-item [routerLink]="item.pagina" routerLinkActive="selected" detail="false">
+          <ion-icon slot="start" [name]="item.icon"></ion-icon>
+          <ion-label>{{item.nombre}}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  
+    <ion-list lines="none">
+      <ion-list-header>
+        Configuración
+      </ion-list-header>
+      <ion-menu-toggle>
+        <ion-item>
+          <ion-icon slot="start" name="moon-outline"></ion-icon>
+          <ion-label>
+            Modo Oscuro
+          </ion-label>
+          <ion-toggle mode="ios" slot="end" [ngModel]="darkMode" [checked]="darkMode" (ionChange) = "cambio()"></ion-toggle>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item (click)="irAInformacion()">
+          <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+          <ion-label>
+            Acerca De
+          </ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>

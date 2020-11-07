@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Comentarios</ion-title>
+    <ion-buttons (click)="dismiss()" slot="end">
+      <ion-button>
+        <ion-icon size="large" color="danger" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="none">
+    <ion-card *ngFor="let item of listComent">
+      <ion-card-header>
+        <ion-item-divider color="transparent">
+          <ion-avatar>
+            <img [src]="url+item.img_user">
+          </ion-avatar>
+          <ion-label class="ion-margin-start">{{item.nombre}}</ion-label>
+        </ion-item-divider>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item color="transparent">
+          <ion-text>{{item.detalle}}</ion-text>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+  <div>
+    <form #formulario="ngForm" (ngSubmit)="sub_formulario()">
+      <ion-list lines="none">
+        <ion-item class="ion-margin-top" lines="none" color="transparent">
+          <ion-textarea
+            type="text" 
+            name="comentario"
+            [(ngModel)]="comentario" 
+            rows="5" 
+            id="myInput"
+            required
+          ></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <div class="right">
+        <ion-item lines="none" color="transparent">
+          <ion-button 
+            type="submit" 
+            fill="clear" 
+            color="secondary"
+            [disabled]="formulario.invalid"
+          >
+            <ion-icon size="large" slot="start" name="chatbox-ellipses-outline"></ion-icon>
+            <ion-label>PUBLICAR</ion-label>
+          </ion-button>
+        </ion-item>
+      </div>
+    </form>
+  </div>
+</ion-content>

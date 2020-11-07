@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sitios Cerca de Ti</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-card *ngFor="let item of list">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">{{item.nombre_sitio}}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-img [src]="url+item.sitio_img"></ion-img>
+                <!-- <img src="{{'data:image/jpg;base64,' + item.sitio_img}}" /> -->
+                <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+                  <ion-fab-button color="light">
+                    <ion-icon color="warning" name="star-outline"></ion-icon>
+                  </ion-fab-button>
+                  <ion-fab-list side="start">
+                    <ion-fab-button color="light" (click)="valorarSitio(5, item)">
+                      <ion-icon color="warning" name="star-outline"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="light" (click)="valorarSitio(4, item)">
+                      <ion-icon color="warning" name="star-outline"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="light" (click)="valorarSitio(3, item)">
+                      <ion-icon color="warning" name="star-outline"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="light" (click)="valorarSitio(2, item)">
+                      <ion-icon color="warning" name="star-outline"></ion-icon>
+                    </ion-fab-button>
+                    <ion-fab-button color="light" (click)="valorarSitio(1, item)">
+                      <ion-icon color="warning" name="star-outline"></ion-icon>
+                    </ion-fab-button>
+                  </ion-fab-list>
+                </ion-fab>
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <!-- <ion-row class="ion-align-items-center">
+            <ion-col size="12" class="ion-text-center">
+              <ion-button fill="clear">
+                <ion-icon size="large" slot="start" color="warning" name="star-outline"></ion-icon>
+                <ion-label color="dark">
+                  <b>5.6</b>
+                </ion-label>
+              </ion-button>
+            </ion-col>
+          </ion-row> -->
+
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-icon color="danger" class="ion-margin-end" name="location-outline"></ion-icon>
+                <ion-label>Dirección</ion-label>
+              </div>
+            </ion-col>
+            <ion-col>
+              <ion-label>{{item.ubicacion}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <div>
+                <ion-icon color="success" class="ion-margin-end" name="call-outline"></ion-icon>
+                <ion-label>Teléfono</ion-label>
+              </div>
+            </ion-col>
+            <ion-col>
+              <ion-label>{{item.telefeno}}</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <!-- <ion-row>
+            <ion-col>
+              <div>
+                <ion-icon color="tertiary" class="ion-margin-end" name="time-outline"></ion-icon>
+                <ion-label>Atención</ion-label>
+              </div>
+            </ion-col>
+            <ion-col>
+              <ion-label>{{item.h_apertura}}</ion-label>
+            </ion-col>
+          </ion-row> -->
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

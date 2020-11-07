@@ -1,0 +1,17 @@
+[
+    {
+        "icon":"beer-outline",
+        "nombre":"Alcohol y Cervezas",
+        "pagina":"/alcohol"
+    },
+    {
+        "icon":"locate-outline",
+        "nombre":"Cerca de Ti",
+        "pagina":"/cercadeti"
+    },
+    {
+        "icon":"location-outline",
+        "nombre":"Sitios Recomendados",
+        "pagina":"/sitios"
+    }
+]

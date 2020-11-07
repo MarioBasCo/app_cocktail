@@ -1,0 +1,70 @@
+<ion-header translucent="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Perfil de Usuario</ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment color="medium" [(ngModel)]="segment">
+      <ion-segment-button value="user">
+        <ion-label>Información</ion-label>
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-segment-button>
+      <!-- <ion-segment-button value="data">
+        <ion-label>Publicaciones</ion-label>
+        <ion-icon name="newspaper-outline"></ion-icon>
+      </ion-segment-button> -->
+      <ion-segment-button value="site">
+        <ion-label>Sitios</ion-label>
+        <ion-icon name="pin"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div [ngSwitch]="segment">
+    <div *ngSwitchCase="'user'">
+      <infouser></infouser>
+    </div>
+
+    <!-- <div *ngSwitchCase="'data'">
+      <ion-button color="tertiary" expand="block" fill="outline">
+        <ion-icon slot="start" name="add-outline"></ion-icon>
+        <ion-label>NUEVO COCTEL</ion-label>
+      </ion-button>
+    </div> -->
+    
+    <div *ngSwitchCase="'site'">
+      <ion-button color="transparent" expand="block" class="btn1" (click)="agregarSitio()">
+        <ion-icon slot="start" name="add-outline"></ion-icon>
+        <ion-label>NUEVO SITIO</ion-label>
+      </ion-button>
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">  
+        <ion-refresher-content  
+        pullingIcon="arrow-down"    
+        refreshingSpinner="bubbles"></ion-refresher-content>  
+      </ion-refresher>  
+      <ion-list lines="none">
+        <ion-card *ngFor="let item of sitios">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">{{item.nombre_sitio}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-img [src]="url+item.sitio_img"></ion-img><br>
+            <ion-text>
+              <ion-icon color="danger" name="location-outline" class="ion-margin-end"></ion-icon>
+              <b>Dirección: </b>{{item.ubicacion}}</ion-text><br><br>
+            <ion-text>
+              <ion-icon color="success" name="location-outline" class="ion-margin-end"></ion-icon>
+              <b>Teléfono: </b>{{item.telefeno}}</ion-text>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+    </div>
+  </div>
+    
+</ion-content>

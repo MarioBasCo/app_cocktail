@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sitios Recomendados</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-chip outline color="warning">
+    <div style="width: 25px;">
+      <i class="fas fa-glass-cheers"></i>
+    </div>
+    <ion-label>Bares</ion-label>
+  </ion-chip>
+  <ion-chip outline color="danger">
+    <ion-icon name="wine"></ion-icon>
+    <ion-label>Discotecas</ion-label>
+  </ion-chip>
+  <ion-chip outline color="success">
+    <div style="width: 25px;">
+      <i class="fas fa-store"></i>
+    </div>
+    <ion-label>Licorerias</ion-label>
+  </ion-chip>
+
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Nombre</ion-label>
+      <ion-label>Valoración</ion-label>
+      <ion-label>Ubicación</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-grid>
+        <ion-row *ngFor="let item of lista" class="ion-align-items-center">
+          <ion-col>
+            <div class="ion-text-justify">
+              {{item.nombre_sitio}}
+            </div>
+          </ion-col>
+          <ion-col class="ion-text-center">
+           <ion-label>{{item.valoracion | number: '1.2-2'}}</ion-label>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-button color="secondary" fill="clear" (click)="abrirModalMap(item)">
+              <ion-icon name="navigate-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

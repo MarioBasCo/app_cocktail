@@ -1,0 +1,1 @@
+export const webservice:string = "http://localhost/wsbielapp";
